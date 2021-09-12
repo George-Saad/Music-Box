@@ -1,11 +1,6 @@
 
 class MenuScreen {
   constructor(container) {
-  
-    this.generateTheme = this.generateTheme.bind(this);
-    this._onSubmit = this._onSubmit.bind(this);
-    this.hide = this.hide.bind(this);
-
     this.container = container;
     this.songsListContainer =  getDOMElement(SONG_SELECTOR_ID);
     this.populateSongSelector(this.songsListContainer);
@@ -18,7 +13,7 @@ class MenuScreen {
   
   }
 
-  async fetchData(url) {
+  fetchData = async (url)=> {
     const response = await fetch(url);
     if (response.ok) {
       const jsonData = await response.json();
@@ -28,7 +23,7 @@ class MenuScreen {
     }
   }
 
-   async populateSongSelector(songsListContainer){
+  populateSongSelector = async (songsListContainer)=> {
     try {
       const songs = await this.fetchData('../../public/song-list.json');
       for(const index in songs) {
@@ -42,37 +37,43 @@ class MenuScreen {
     }
    }
 
-   generateTheme(){
+   generateTheme = ()=> {
     const themes = ['candy', 'charlie brown', 'computers', 'dance', 'donuts', 'hello kitty', 'flowers', 'nature', 'turtles', 'space'];
     const randomIndex = Math.floor(Math.random() * themes.length);
     this.themeInput.placeholder = themes[randomIndex];
   }
   
-  async _onSubmit(event){
+  _onSubmit = async (event)=> {
     event.preventDefault();
-    this.hide();
     
     const songUrl = this.songsListContainer.value;
     const path = "http://api.giphy.com/v1/gifs/search?q=";
     const limit = 25;
     const rating = 'g';
-    const api_key = 'dc6zaTOxFJmzC';
+    const api_key = '2ah9anki4HuLN7g5yJapEXT8fasVqdJu';
      const query = path + encodeURIComponent(this.themeInput.value) 
      + "&api_key=" + encodeURIComponent(api_key) + "&limit=" + limit + "&rating=" + rating;
     
      try{
       const jsonData = await this.fetchData(query);
       const gifs = jsonData.data;
+      if(gifs.length < 2) {
+        throw new Error('Not enough gifs');
+      }
+      this.hide();
       const queryCompleteEvent = new CustomEvent(QUERY_COMPLETE_EVENT,  
          {detail: {'gifs': gifs, 'song':  songUrl}});
       document.dispatchEvent(queryCompleteEvent);
     } catch(err) {
       console.log('ERROR: ' + err);
+      if(err.message === 'Not enough gifs'){
+        getDOMElement('error').classList.remove('inactive');
+      }
     }
     
   }
 
-  hide(){
+  hide = ()=> {
     this.container.classList.add('inactive');
   }
 

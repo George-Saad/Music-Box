@@ -25,5 +25,11 @@
   return document.getElementById(id);
 };
 
+// show(container){
+//   this.container.classList.remove("inactive");
+// }
 
+// hide(){
+//   this.container.classList.add('inactive');
+// }
 

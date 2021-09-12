@@ -2,14 +2,12 @@
 
 class App {
   constructor() {
-    this._setupMusicScreen = this._setupMusicScreen.bind(this);
-
     const menuContainer = getDOMElement(MENU_ID);
     this.menu = new MenuScreen(menuContainer);
     document.addEventListener(QUERY_COMPLETE_EVENT, this._setupMusicScreen);
   }
 
-  _setupMusicScreen(e){
+  _setupMusicScreen = (e)=> {
     const audioPlayer = new AudioPlayer();
     audioPlayer.setSong(e.detail['song']);
     const gifDisplayContainer = getDOMElement(BACKGROUND_GIF_ID);

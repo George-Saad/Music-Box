@@ -90,3 +90,7 @@ body {
 .inactive {
   display: none !important;
 }
+
+#error {
+  color: red;
+}

@@ -4,6 +4,7 @@
 }
 
 #background-gif {
+  position: relative;
   height: 100%;
   height: -webkit-calc(100% - 70px);
   height: -moz-calc(100% - 70px);
@@ -27,9 +28,9 @@
 }
 
 #buffer-gif {
-  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
-  z-index: -1;
+  top: 0;
+  left: 0;
   height: 100%;
   height: -webkit-calc(100% - 70px);
   height: -moz-calc(100% - 70px);
@@ -38,4 +39,12 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-color: lightgray;
+}
+
+.background {
+  z-index: 0;
+}
+
+.foreground {
+  z-index: 1;
 }

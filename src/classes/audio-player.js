@@ -1,5 +1,4 @@
-// NOTE: We are expecting you to *create* an AudioPlayer, but we are *not*
-// expecting you to modify the contents of this file.
+
 class AudioPlayer {
   constructor() {
     this._onKickCallback = this._onKickCallback.bind(this);

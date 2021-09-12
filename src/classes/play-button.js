@@ -1,18 +1,17 @@
 
 class PlayButton {
   constructor(container) {
-    this._toggle = this._toggle.bind(this);
     this.container = container;
     this.isPlaying = true;
-    this.playButtonImg = this.container.querySelector('img');;
+    this.playButtonImg = this.container.querySelector('img');
     this.playButtonImg.addEventListener('click', this._toggle);
   }
 
-  setNotifiedCallback(callbackFun){
+  setNotifiedCallback = (callbackFun)=> {
     this.notifyMusicScreenCallbcak = callbackFun;
   }
 
-  _toggle(){
+  _toggle = ()=> {
     if (this.isPlaying === true){
       this.playButtonImg.src = '../../public/images/play.png';
       this.isPlaying = !this.isPlaying;
