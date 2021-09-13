@@ -41,7 +41,12 @@ export default class MusicScreen {
 
   #loading = ()=> {
     const loadingContainer = utils.createDOMElement('div', { id:LOADING_ID } );
-    loadingContainer.textContent = 'Loading...';
+    const loadingGiphyLogo = utils.createDOMElement('img', { className: 'logo' } );
+    loadingGiphyLogo.src = 'https://giphy.com/static/img/about/stickers/logo-spin.gif';
+    const loadingTitle = utils.createDOMElement('h1');
+    loadingTitle.textContent = 'Loading...';
+    loadingContainer.appendChild(loadingGiphyLogo);
+    loadingContainer.appendChild(loadingTitle);
     this.#container.parentNode.appendChild(loadingContainer);
   }
 

@@ -5,6 +5,17 @@
 
 #background-gif {
   position: relative;
+}
+
+#buffer-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#background-gif,
+#buffer-gif {
+  width: 100%;
   height: 100%;
   height: -webkit-calc(100% - 70px);
   height: -moz-calc(100% - 70px);
@@ -16,6 +27,7 @@
 }
 
 #play-button {
+  background: rgb(18, 18, 18);
   height: 70px;
   display: flex;
   justify-content: center;
@@ -25,20 +37,6 @@
 #play-button img {
   height: 60px;
   width: 60px;
-}
-
-#buffer-gif {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  height: -webkit-calc(100% - 70px);
-  height: -moz-calc(100% - 70px);
-  height: calc(100% - 70px);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: lightgray;
 }
 
 .background {

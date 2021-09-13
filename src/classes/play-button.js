@@ -19,12 +19,12 @@ export default class PlayButton {
 
   #_toggle = ()=> {
     if (this.#isPlaying === true){
-      this.#playButtonImg.src = '../../public/images/play.png';
-      this.#isPlaying = !this.isPlaying;
+      this.#playButtonImg.src = '../../public/images/play-icon.png';
+      this.#isPlaying = !this.#isPlaying;
       this.#notifyMusicScreenCallbcak();
     }
     else{
-      this.#playButtonImg.src = '../../public/images/pause.png';
+      this.#playButtonImg.src = '../../public/images/pause-icon.png';
       this.#isPlaying = !this.#isPlaying;
       this.#notifyMusicScreenCallbcak();
     }

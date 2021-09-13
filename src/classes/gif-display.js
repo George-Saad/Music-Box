@@ -58,6 +58,8 @@ export default class GifDisplay {
   }
 
   #toggleGif = (containerClass, bufferClass)=> {
+    console.log('cick');
+    console.log(this.#preLoadGifs.length);
     this.#container.classList.add(bufferClass);
     this.#container.classList.remove(containerClass);
     this.#buffer.classList.add(containerClass);

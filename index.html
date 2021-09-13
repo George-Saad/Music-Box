@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Music Box</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="public/css/style.css"/>
     <link rel="stylesheet" href="public/css/musicbox-style.css"/>
     <link rel="stylesheet" href="public/css/loading.css"/>
@@ -17,6 +17,7 @@
   <body>
 
     <div id="menu">
+      <img class="logo" src="https://giphy.com/static/img/about/stickers/logo-spin.gif">
       <h1>Music Box</h1>
       <fieldset>
         <form>
@@ -27,7 +28,7 @@
           <input type="text" id="query-input" placeholder="Enter a word or phrase" />
           <div id="error" class="inactive">Not enough gifs for this theme. Please try another.</div>
 
-          <input type="submit" value="Go" />
+          <input class="submit-button" type="submit" value="Go" />
         </form>
       </fieldset>
     </div>
@@ -36,7 +37,7 @@
       <div id="background-gif"></div>
       <div id="buffer-gif"></div>
       <div id="play-button">
-        <img src="public/images/pause.png" alt="Pause image">
+        <img src="public/images/pause-icon.png" alt="Pause image">
       </div>
     </div>
   </body>
