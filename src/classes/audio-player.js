@@ -1,5 +1,5 @@
 
-class AudioPlayer {
+export default class AudioPlayer {
   constructor() {
     this._onKickCallback = this._onKickCallback.bind(this);
     this.isPlay = false;

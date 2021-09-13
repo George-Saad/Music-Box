@@ -1,17 +1,17 @@
 'use strict';
 
- const MENU_ID = 'menu';
- const MUSIC_ID = 'music';
- const BACKGROUND_GIF_ID = 'background-gif';
- const BUFFER_GIF_ID = 'buffer-gif';
- const QUERY_INPUT_ID = 'query-input';
- const SONG_SELECTOR_ID = 'song-selector';
- const PLAY_BUTTON_ID = 'play-button';
- const LOADING_ID = 'loading';
+export  const MENU_ID = 'menu';
+export const MUSIC_ID = 'music';
+export const BACKGROUND_GIF_ID = 'background-gif';
+export const BUFFER_GIF_ID = 'buffer-gif';
+export const QUERY_INPUT_ID = 'query-input';
+export const SONG_SELECTOR_ID = 'song-selector';
+export const PLAY_BUTTON_ID = 'play-button';
+export const LOADING_ID = 'loading';
 
- const SUBMIT_BUTTON_CLASS = 'submit-button';
- const INACTIVE_CLASS = 'inactive';
- const BACKGROUND_CLASS = 'background';
- const FOREGROUND_CLASS = 'foreground';
+export const SUBMIT_BUTTON_CLASS = 'submit-button';
+export const INACTIVE_CLASS = 'inactive';
+export const BACKGROUND_CLASS = 'background';
+export const FOREGROUND_CLASS = 'foreground';
 
- const QUERY_COMPLETE_EVENT = 'query-complete';
+export const QUERY_COMPLETE_EVENT = 'query-complete';

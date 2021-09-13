@@ -1,35 +1,37 @@
-'use strict';
+import { INACTIVE_CLASS } from "./constants.js";
 
- const clearDOMElement = (DOMElement) => {
-  DOMElement.innerHTML = '';
-};
-
- const createDOMElement = (tag, options) => {
-  const { id } = options || {};
-  const { className } = options || {};
-
-  const element = document.createElement(tag);
-
-  if (id != null) {
-    element.id = id;
-  }
+export default class DOMUtils {
   
-  if (className != null) {
-    element.classList.add(className);
+  clearDOMElement = (DOMElement) => {
+    DOMElement.innerHTML = '';
+  };
+
+  createDOMElement = (tag, options) => {
+    const { id } = options || {};
+    const { className } = options || {};
+  
+  const element = document.createElement(tag);
+  
+    if (id != null) {
+      element.id = id;
+    }
+    
+    if (className != null) {
+      element.classList.add(className);
+    }
+  
+    return element;
+  };
+  
+  getDOMElement = (id) => {
+    return document.getElementById(id);
+  };
+
+  hideDOMElement = (element) => {
+    element.classList.add(INACTIVE_CLASS);
   }
 
-  return element;
-};
-
- const getDOMElement = (id) => {
-  return document.getElementById(id);
-};
-
-// show(container){
-//   this.container.classList.remove("inactive");
-// }
-
-// hide(){
-//   this.container.classList.add('inactive');
-// }
-
+  showDOMElement = (element) => {
+    element.classList.remove(INACTIVE_CLASS);
+  }
+}
