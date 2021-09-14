@@ -18,7 +18,6 @@ export default class MusicScreen {
     this.#gifDisplay = gifDisplay;
     this.#gifDisplay.setOnGifsReadyCallback(this._onGifsReady);
     this.#playButton = playButton;
-
     this.#playButton.setNotifiedCallback(this._onPlayButtonToggle);    
   }
 

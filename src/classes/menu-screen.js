@@ -1,6 +1,6 @@
 
 import DOMUtils from "../DOMUtils.js";
-import { SONG_SELECTOR_ID, QUERY_INPUT_ID, QUERY_COMPLETE_EVENT } from '../constants.js'
+import { SONG_SELECTOR_ID, QUERY_INPUT_ID, QUERY_COMPLETE_EVENT, GIPHY_API_KEY } from '../constants.js'
 
 const utils = new DOMUtils();
 
@@ -30,7 +30,7 @@ export default class MenuScreen {
       const jsonData = await response.json();
       return jsonData;
     } else {
-      throw new Error('HTTP ERROR ' + response.status);
+      throw new Error('HTTP ERROR: ' + response.status);
     }
   }
 
@@ -61,7 +61,7 @@ export default class MenuScreen {
     const path = "http://api.giphy.com/v1/gifs/search?q=";
     const limit = 25;
     const rating = 'g';
-    const api_key = '2ah9anki4HuLN7g5yJapEXT8fasVqdJu';
+    const api_key = GIPHY_API_KEY;
      const query = path + encodeURIComponent(this.#themeInput.value) 
      + "&api_key=" + encodeURIComponent(api_key) + "&limit=" + limit + "&rating=" + rating;
     

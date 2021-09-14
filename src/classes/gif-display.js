@@ -24,13 +24,8 @@ export default class GifDisplay {
     this.#_gifsReadyCallback = callbackFun;
   }
 
-  #updateGifDisplay = ()=> {
-    this.#container.style.backgroundImage = 'url(' + this.#preLoadImages[this.#currentGifIndex].src + ')';
-    this.#currentGifIndex++;
-  }
-
-  #updateBuffer = ()=> {
-    this.#buffer.style.backgroundImage = 'url(' + this.#preLoadImages[this.#currentGifIndex].src + ')';
+  #updateGifDisplay = (gifContainer)=> {
+    gifContainer.style.backgroundImage = 'url(' + this.#preLoadImages[this.#currentGifIndex].src + ')';
     this.#currentGifIndex++;
   }
 
@@ -38,8 +33,8 @@ export default class GifDisplay {
     this.#currentGifIndex = 0;
     this.#container.classList.add(FOREGROUND_CLASS);
     this.#buffer.classList.add(BACKGROUND_CLASS);
-    this.#updateGifDisplay();
-    this.#updateBuffer();
+    this.#updateGifDisplay(this.#container);
+    this.#updateGifDisplay(this.#buffer);
   }
 
   _changeGif = ()=> {
@@ -49,17 +44,15 @@ export default class GifDisplay {
 
     if(this.#container.classList.contains(BACKGROUND_CLASS)) {
       this.#toggleGif(BACKGROUND_CLASS, FOREGROUND_CLASS);
-      this.#updateBuffer();
+      this.#updateGifDisplay(this.#buffer);
     }
     else {
       this.#toggleGif(FOREGROUND_CLASS, BACKGROUND_CLASS);
-      this.#updateGifDisplay();
+      this.#updateGifDisplay(this.#container);
     }
   }
 
   #toggleGif = (containerClass, bufferClass)=> {
-    console.log('cick');
-    console.log(this.#preLoadGifs.length);
     this.#container.classList.add(bufferClass);
     this.#container.classList.remove(containerClass);
     this.#buffer.classList.add(containerClass);
@@ -78,7 +71,7 @@ export default class GifDisplay {
         this.#initGifs();
         this.#_gifsReadyCallback();       
       }
-      this.#preLoadGifs(gifs, i+1)
+      this.#preLoadGifs(gifs, i+1);
     };
   }
 }

@@ -16,5 +16,4 @@ export const FOREGROUND_CLASS = 'foreground';
 
 export const QUERY_COMPLETE_EVENT = 'query-complete';
 
-export const PLAY_IMAGE = '';
-export const PAUSE_IMAGE = '';
+export const GIPHY_API_KEY = '2ah9anki4HuLN7g5yJapEXT8fasVqdJu';

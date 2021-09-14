@@ -18,7 +18,7 @@ export default class PlayButton {
   }
 
   #_toggle = ()=> {
-    if (this.#isPlaying === true){
+    if (this.#isPlaying){
       this.#playButtonImg.src = '../../public/images/play-icon.png';
       this.#isPlaying = !this.#isPlaying;
       this.#notifyMusicScreenCallbcak();
